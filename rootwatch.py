@@ -1,15 +1,10 @@
 
 from auditor.users import run_user_audit
+from auditor.ssh_audit import run_ssh_audit
 
 
-def main():
-    print("=" * 50)
-    print("       ROOTWATCH - LINUX SECURITY AUDITOR")
-    print("=" * 50)
-
-    print("\n[1] USER & PRIVILEGE AUDIT\n")
-
-    findings = run_user_audit()
+def display_findings(title, findings):
+    print(f"\n[{title}]\n")
 
     for finding in findings:
         print(f"Check    : {finding['check']}")
@@ -17,6 +12,15 @@ def main():
         print(f"Status   : {finding['status']}")
         print(f"Details  : {finding['details']}")
         print("-" * 50)
+
+
+def main():
+    print("=" * 50)
+    print("       ROOTWATCH - LINUX SECURITY AUDITOR")
+    print("=" * 50)
+
+    display_findings("1. USER & PRIVILEGE AUDIT", run_user_audit())
+    display_findings("2. SSH SECURITY AUDIT", run_ssh_audit())
 
 
 if __name__ == "__main__":
