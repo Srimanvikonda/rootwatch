@@ -4,7 +4,7 @@ from auditor.users import run_user_audit
 
 def main():
     print("=" * 50)
-    print("       SENTINELOPS - LINUX SECURITY AUDITOR")
+    print("       ROOTWATCH - LINUX SECURITY AUDITOR")
     print("=" * 50)
 
     print("\n[1] USER & PRIVILEGE AUDIT\n")
